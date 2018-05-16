@@ -62,5 +62,12 @@ npm install node-forge
 Build and deploy
 
 ```
+git checkout master
 ng build --base-href="/easy-encrypt" --output-path=www/
+git checkout gh-pages
+mv www/* .
+rmdir www
+git commit -am 'update app'
+git push
+git checkout master
 ```
