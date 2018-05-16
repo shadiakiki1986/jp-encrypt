@@ -1,4 +1,4 @@
-# EasyEncrypt
+# JP Encrypt
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
@@ -40,7 +40,7 @@ Install [angular](https://angular.io/guide/quickstart)
 
 ```
 npm install -g @angular/cli
-ng new easy-encrypt
+ng new jp-encrypt
 ```
 
 Serve with AWS instance
@@ -63,7 +63,7 @@ Build and deploy
 
 ```
 git checkout master
-ng build --base-href="/easy-encrypt/" --output-path=www/
+ng build --base-href="/jp-encrypt/" --output-path=www/
 git checkout gh-pages
 mv www/* .
 rmdir www

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "easy-encrypt": {
+    "jp-encrypt": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/easy-encrypt",
+            "outputPath": "dist/jp-encrypt",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "easy-encrypt:build"
+            "browserTarget": "jp-encrypt:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "easy-encrypt:build:production"
+              "browserTarget": "jp-encrypt:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "easy-encrypt:build"
+            "browserTarget": "jp-encrypt:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "easy-encrypt-e2e": {
+    "jp-encrypt-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,7 +103,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "easy-encrypt:serve"
+            "devServerTarget": "jp-encrypt:serve"
           }
         },
         "lint": {
@@ -118,5 +118,5 @@
       }
     }
   },
-  "defaultProject": "easy-encrypt"
+  "defaultProject": "jp-encrypt"
 }
