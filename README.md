@@ -62,5 +62,5 @@ npm install node-forge
 Build and deploy
 
 ```
-ng build --output-path docs/
+ng build --base-href=easy-encrypt --output-path=www/
 ```
