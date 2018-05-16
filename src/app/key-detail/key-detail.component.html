@@ -1,0 +1,29 @@
+<div *ngIf="key">
+  <h2>{{ key.name }} Details</h2>
+  <div><span>ID: </span>{{key.id}}</div>
+  <div>
+    <label>Name:
+      <input [(ngModel)]="key.name" placeholder="name" size=100>
+    </label>
+  </div>
+  <div>
+    <label>Public key (in PEM format <a href="https://superuser.com/a/576558/642842">ref</a>):
+      <textarea [(ngModel)]="key.public_key" placeholder="public_key" cols="100" rows="20">
+      </textarea>
+    </label>
+  </div>
+
+  <div>
+    <h2>Enter message to encrypt</h2>
+    <label>Message:
+      <textarea [(ngModel)]="message" placeholder="message" cols="100" rows="20">
+      </textarea>
+    </label>
+
+    <div>Encrypted:
+    {{onEncrypt()}}
+    </div>
+
+  </div>
+
+</div>

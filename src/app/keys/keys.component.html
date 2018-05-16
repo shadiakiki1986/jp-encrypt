@@ -1,0 +1,9 @@
+<h2>Click a key</h2>
+<ul>
+	<li *ngFor="let key of keys" (click)="onSelect(key)" [class.selected]="key === selectedKey">
+		<h2>{{ key.name }}</h2>
+	</li>
+</ul>
+
+
+<app-key-detail [key]="selectedKey"></app-key-detail>
