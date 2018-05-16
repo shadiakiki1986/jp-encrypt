@@ -62,6 +62,5 @@ npm install node-forge
 Build and deploy
 
 ```
-ng build
-mv dist/easy-encrypt/* docs/
+ng build --output-path docs/
 ```
