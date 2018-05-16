@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n<h2>encrypt a message using a public key</h2>\n<p>\n  Say you want to encrypt a short text message and send it to Mr X.\n  easy-encrypt allows you to encrypt it using Mr X's public key.\n  Only Mr X can decrypt the message using his private key.\n</p>\n\n<app-keys></app-keys>\n\n<ul>\n  <li>\n    <a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/shadiakiki1986/easy-encrypt\">Source code</a>\n  </li>\n</ul>\n\n"
+module.exports = "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css\" integrity=\"sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB\" crossorigin=\"anonymous\">\n\n<!--The content below is only a placeholder and can be replaced.-->\n<div class='container'>\n<div class='jumbotron'>\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <div>\n    This is my friend JP <img src=\"assets/jp.jpg\" width=\"20%\" />\n  </div>\n  <div>\n    <p>JP wants to send me his phone number, but he doesn't trust social media.</p>\n    <p>Using this app, he can encrypt his phone number using my public key\n    and send it to me over any social media text messenger.</p>\n    <p>The encrypted phone number can only be decrypted using my private key.</p>\n  </div>\n</div>\n\n<app-keys></app-keys>\n\n<div>\n  Decrypt using openssl in terminal\n  <pre>\n  # Save to file\n  cat > encrypted.txt\n  # paste encrypted message\n  # Ctrl+C\n\n  # decode base64\n  base64 -d encrypted.txt > encrypted.bin\n\n  # decrypt using PEM private key\n  openssl rsautl -decrypt -in encrypted.bin -inkey ~/.ssh/id_rsa.pem\n  </pre>\n</div>\n\n<ul>\n  <li>\n    <a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/shadiakiki1986/jp-encrypt\">Source code</a>\n  </li>\n</ul>\n\n<p>\n  And for some xkcd comics\n  <br/>\n  <a href=\"https://www.xkcd.com/1269/\" target=\"_blank\">\n    <img src=\"https://imgs.xkcd.com/comics/privacy_opinions.png\" width=\"25%\" />\n  </a>\n</p>\n\n</div> <!-- container -->\n"
 
 /***/ }),
 
@@ -65,7 +65,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'easy-encrypt';
+        this.title = 'jp-encrypt';
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -207,7 +207,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"key\">\n  <div>\n    <label>Name:\n      <input [(ngModel)]=\"key.name\" placeholder=\"name\" size=100>\n    </label>\n  </div>\n  <div>\n    <label>Public key (in PEM format <a href=\"https://superuser.com/a/576558/642842\">ref</a>):\n      <textarea [(ngModel)]=\"key.public_key\" placeholder=\"public_key\" cols=\"100\" rows=\"20\">\n      </textarea>\n    </label>\n  </div>\n\n  <div>\n    <h2>Enter message to encrypt</h2>\n    <label>Message:\n      <textarea [(ngModel)]=\"message\" placeholder=\"message\" cols=\"100\" rows=\"20\" (ngModelChange)=\"onEncrypt()\">\n      </textarea>\n    </label>\n\n    <div>Encrypted:\n    {{encrypted}}\n    </div>\n\n  </div>\n\n</div>\n"
+module.exports = "<div *ngIf=\"key\">\n  <button (click)=\"launchEdit = ! launchEdit\">\n    Details\n  </button>\n  <div *ngIf=\"launchEdit\">\n    <div>\n      <label>Name:\n        <input [(ngModel)]=\"key.name\" placeholder=\"name\" size=100>\n      </label>\n    </div>\n    <div>\n      <label>Public key (in PEM format <a href=\"https://superuser.com/a/576558/642842\">ref</a>):\n        <textarea [(ngModel)]=\"key.public_key\" placeholder=\"public_key\" cols=\"100\" rows=\"20\">\n        </textarea>\n      </label>\n    </div>\n  </div>\n\n  <div class='row'>\n    <div class='col-6'>\n      <h3>Enter message to encrypt</h3>\n      <textarea [(ngModel)]=\"message\" placeholder=\"message\" rows=\"20\" (ngModelChange)=\"onEncrypt()\" class=\"form-control\">\n      </textarea>\n    </div>\n    <div class='col-6'>\n      <h3>Encrypted:</h3>\n      <div style=\"word-break:break-all;\">{{encrypted}}</div>\n    </div>\n\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -239,6 +239,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var KeyDetailComponent = /** @class */ (function () {
     function KeyDetailComponent(forgeService) {
         this.forgeService = forgeService;
+        this.launchEdit = false;
     }
     KeyDetailComponent.prototype.ngOnInit = function () {
     };
