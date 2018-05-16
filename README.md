@@ -58,3 +58,10 @@ Follow tutorial
 ```
 npm install node-forge
 ```
+
+Build and deploy
+
+```
+ng build
+mv dist/easy-encrypt/* docs/
+```
