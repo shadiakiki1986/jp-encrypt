@@ -13,6 +13,7 @@ export class KeyDetailComponent implements OnInit {
 
   message: string;
   encrypted: string;
+  launchEdit: boolean = false;
 
   constructor(private forgeService: ForgeService) { }
 

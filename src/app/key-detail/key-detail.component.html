@@ -1,25 +1,30 @@
 <div *ngIf="key">
-  <div>
-    <label>Name:
-      <input [(ngModel)]="key.name" placeholder="name" size=100>
-    </label>
-  </div>
-  <div>
-    <label>Public key (in PEM format <a href="https://superuser.com/a/576558/642842">ref</a>):
-      <textarea [(ngModel)]="key.public_key" placeholder="public_key" cols="100" rows="20">
-      </textarea>
-    </label>
+  <button (click)="launchEdit = ! launchEdit">
+    Details
+  </button>
+  <div *ngIf="launchEdit">
+    <div>
+      <label>Name:
+        <input [(ngModel)]="key.name" placeholder="name" size=100>
+      </label>
+    </div>
+    <div>
+      <label>Public key (in PEM format <a href="https://superuser.com/a/576558/642842">ref</a>):
+        <textarea [(ngModel)]="key.public_key" placeholder="public_key" cols="100" rows="20">
+        </textarea>
+      </label>
+    </div>
   </div>
 
-  <div>
-    <h2>Enter message to encrypt</h2>
-    <label>Message:
-      <textarea [(ngModel)]="message" placeholder="message" cols="100" rows="20" (ngModelChange)="onEncrypt()">
+  <div class='row'>
+    <div class='col-6'>
+      <h3>Enter message to encrypt</h3>
+      <textarea [(ngModel)]="message" placeholder="message" rows="20" (ngModelChange)="onEncrypt()" class="form-control">
       </textarea>
-    </label>
-
-    <div>Encrypted:
-    {{encrypted}}
+    </div>
+    <div class='col-6'>
+      <h3>Encrypted:</h3>
+      <div style="word-break:break-all;">{{encrypted}}</div>
     </div>
 
   </div>

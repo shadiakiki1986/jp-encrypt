@@ -1,17 +1,39 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class='container'>
+<div class='jumbotron'>
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <div>
+    This is my friend JP <img src="assets/jp.jpg" width="20%" />
+  </div>
+  <div>
+    <p>JP wants to send me his phone number, but he doesn't trust social media.</p>
+    <p>Using this app, he can encrypt his phone number using my public key
+    and send it to me over any social media text messenger.</p>
+    <p>The encrypted phone number can only be decrypted using my private key.</p>
+  </div>
 </div>
-<h2>encrypt a message using a public key</h2>
-<p>
-  Say you want to encrypt a short text message and send it to Mr X.
-  easy-encrypt allows you to encrypt it using Mr X's public key.
-  Only Mr X can decrypt the message using his private key.
-</p>
 
 <app-keys></app-keys>
+
+<div>
+  Decrypt using openssl in terminal
+  <pre>
+  # Save to file
+  cat > encrypted.txt
+  # paste encrypted message
+  # Ctrl+C
+
+  # decode base64
+  base64 -d encrypted.txt > encrypted.bin
+
+  # decrypt using PEM private key
+  openssl rsautl -decrypt -in encrypted.bin -inkey ~/.ssh/id_rsa.pem
+  </pre>
+</div>
 
 <ul>
   <li>
@@ -19,3 +41,12 @@
   </li>
 </ul>
 
+<p>
+  And for some xkcd comics
+  <br/>
+  <a href="https://www.xkcd.com/1269/" target="_blank">
+    <img src="https://imgs.xkcd.com/comics/privacy_opinions.png" width="25%" />
+  </a>
+</p>
+
+</div> <!-- container -->
