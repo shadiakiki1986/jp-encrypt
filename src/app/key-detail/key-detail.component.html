@@ -1,6 +1,4 @@
 <div *ngIf="key">
-  <h2>{{ key.name }} Details</h2>
-  <div><span>ID: </span>{{key.id}}</div>
   <div>
     <label>Name:
       <input [(ngModel)]="key.name" placeholder="name" size=100>
@@ -16,12 +14,12 @@
   <div>
     <h2>Enter message to encrypt</h2>
     <label>Message:
-      <textarea [(ngModel)]="message" placeholder="message" cols="100" rows="20">
+      <textarea [(ngModel)]="message" placeholder="message" cols="100" rows="20" (ngModelChange)="onEncrypt()">
       </textarea>
     </label>
 
     <div>Encrypted:
-    {{onEncrypt()}}
+    {{encrypted}}
     </div>
 
   </div>

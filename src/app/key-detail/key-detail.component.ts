@@ -12,6 +12,7 @@ export class KeyDetailComponent implements OnInit {
   @Input() key: Key;
 
   message: string;
+  encrypted: string;
 
   constructor(private forgeService: ForgeService) { }
 
@@ -19,7 +20,9 @@ export class KeyDetailComponent implements OnInit {
   }
 
   onEncrypt() {
-     return this.forgeService.encrypt(this.key.public_key, this.message);
+     return this.forgeService.encrypt(this.key.public_key, this.message)
+                .subscribe(encrypted => this.encrypted = encrypted);
+     ;
   }
 
 }

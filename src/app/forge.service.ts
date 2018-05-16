@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as forge from 'node-forge'
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,15 @@ export class ForgeService {
 
   constructor() { }
 
-  encrypt(pem: string, message: string): string {
+  encrypt(pem: string, message: string): Observable<string> {
     // https://github.com/digitalbazaar/forge#rsa
-    console.log(pem, message)
+    if(!message) return of("");
     try {
       var publicKey = forge.pki.publicKeyFromPem(pem);
       var encrypted = publicKey.encrypt(message);
-      return encrypted;
+      return of(forge.util.encode64(encrypted));
     } catch(e) {
-      return e.message;
+      return of(e.message);
     }
   }
 }
