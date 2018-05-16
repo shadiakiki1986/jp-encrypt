@@ -63,7 +63,7 @@ Build and deploy
 
 ```
 git checkout master
-ng build --base-href="/easy-encrypt" --output-path=www/
+ng build --base-href="/easy-encrypt/" --output-path=www/
 git checkout gh-pages
 mv www/* .
 rmdir www
