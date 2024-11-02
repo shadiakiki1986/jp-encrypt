@@ -1,5 +1,9 @@
 # JP Encrypt
 
+encrypt a message using public key in the browser
+
+https://shadiakiki1986.github.io/jp-encrypt/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 ## Development server
