@@ -71,3 +71,8 @@ git commit -am 'update app'
 git push
 git checkout master
 ```
+
+## Similar
+
+- https://marcello09.github.io/notion-lock/en
+  - found from https://www.reddit.com/r/Notion/comments/9oksek/password_protected_pages/?rdt=40939
